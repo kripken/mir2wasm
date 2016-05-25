@@ -1,4 +1,4 @@
-#![feature(rustc_private, custom_attribute, link_args)]
+#![feature(rustc_private, custom_attribute)]
 #![allow(unused_attributes)]
 
 extern crate env_logger;
@@ -10,10 +10,6 @@ extern crate rustc_driver;
 use mir2wasm::trans;
 use rustc::session::Session;
 use rustc_driver::{driver, CompilerCalls};
-
-// FIXME: C++ static linkage hacks. How do you do this for real?!
-#[link_args = "-lstdc++ -static-libstdc++"]
-extern { }
 
 struct MiriCompilerCalls;
 
